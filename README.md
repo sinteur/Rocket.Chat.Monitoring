@@ -161,7 +161,7 @@ First thing we need to do is to create a persistent storage volume for the grafa
 ```
    docker volume create grafana-storage
 ```
-If you have been following these instructions, there will not be any need to modify the granfana container's configuration for connection to prometheus, it should **just work**.  However, if you have deviated, the configuration file to connect prometheus as a datasource is at `grafana/provisioning/datasources` and you can modify it to suit your networking topology.
+If you have been following these instructions, there will not be any need to modify the granfana container's configuration for connection to prometheus, it should **just work**.  However, if you have deviated, the configuration file to connect prometheus as a datasource is at `grafana/provisioning/datasources` and you can modify it to suit your networking topology.  See [granfana documentation](https://grafana.com/docs/grafana/latest/features/datasources/prometheus/) for details.
 
 ```
 apiVersion: 1
