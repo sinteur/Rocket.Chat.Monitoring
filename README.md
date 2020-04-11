@@ -156,7 +156,7 @@ You will use [grafana](https://grafana.com/), the open source de-facto visualiza
 
 Grafana will be running in a docker container that is connected to the monitoring network that you setup previously  (prometheus should be now running and connected to this monitoring network from step 3).
 
-First thing we need to do is to create a persistent storage volume for the grafana container to use for data storage.
+First thing you need to do is to create a persistent storage volume for the grafana container to use for data storage.
 
 ```
    docker volume create grafana-storage
