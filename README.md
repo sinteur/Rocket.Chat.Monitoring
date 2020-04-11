@@ -215,3 +215,18 @@ username:   admin
 password:   admin
 ```
 You should immediately add users and change the administrator's password.   See [grafana permissions and roles](https://grafana.com/docs/grafana/latest/permissions/overview/)  for more information on user administration and setup.
+
+Upon login, you can immediately import the starter Rocket.Chat dashboard and get a real-time look inside your Rocket.Chat server(s).   Move your mouse over the bit **+** on the left bar and select *import*.
+
+![grafana import menu](images/importmenu.png)
+
+Choose **Upload .json file**.  Select the dashboard `.json` file from `dashboards/rocketchat/rcmonitoringbase.json`.   This will load and display the dashboard against the prometheus data.   
+
+From the **servers:** drop down list, you can select any of your servers to display its metrics.
+
+This is only a basic "starter" dashboard that we included. It has many of the useful Rocket.Chat application level metrics, API call and resource consumption metrics, and NodeJS based metrics.    
+
+You are likely only to need a subset of these dashboards and can customize it to your needs.   You are encouraged to study the [grafana dashboard design documentation]() and customize or create your own.   Please consider contributing any useful dashboards that you create back to this project.
+
+
+
