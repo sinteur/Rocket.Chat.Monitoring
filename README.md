@@ -208,7 +208,8 @@ http://<host IP of grafana container>:3300
 
 The default login credential is:
 
+```
 username:   admin
 password:   admin
-
+```
 You should immediately add users and change the administrator's password.   See [grafana permissions and roles](https://grafana.com/docs/grafana/latest/permissions/overview/)  for more information on user administration and setup.
