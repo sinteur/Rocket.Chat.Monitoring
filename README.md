@@ -4,7 +4,7 @@ Easy ad-hoc monitoring of a single or multiple Rocket.Chat servers
 ## Monitoring your existing server(s)
 
 So you have a few Rocket.Chat servers running for your family and friends, perhaps for your office or special interest group.
-You've always wanted some way to "look inside" these servers and monitor their health during operations but falls short of doing something about it.
+You've always wanted some way to "look inside" these servers and monitor their health during operations but fell short of doing something about it.
 
 This project will help you to realize that goal.   It will show you step by step how to setup monitoring for your existing Rocket.Chat server.  
 
@@ -18,4 +18,12 @@ The monitoring stack used in this project is adaptive to all platforms and can e
 
 *  the latest supported docker and docker-compose installed and working for your platform (on Ubuntu 18.04LTS and later, `snap install docker`
 
+
+#### 1.  Prepare your Rocket.Chat servers to expose metrics
+
+For security reasons, Rocket.Chat servers do not expose any operational metrics by default.  You must turn it on. 
+
+For each server you want to monitor, sign in as administrator and then go to Administration -> Logs -> Prometheus and make sure you **enable** it and remember the default port used.
+
+ 
 
