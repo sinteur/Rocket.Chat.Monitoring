@@ -104,10 +104,26 @@ For every server that you want to monitor, but is not running in docker, or not 
 
 The `<short server name>` should be a unique string to identify the server to be scraped (for example `familyserver`).   The `<IP address of server host>`  must be the IP address that you can reach the server to be monitored by.  The `<port exposing metrics>` is the port that you've noted in step 1.
 
-After you've add `scrape_configs` for every one of the servers to be monitored, you can now create a persistent storage volume for the prometheus container to use for data storage.
+After you've add `scrape_configs` for every one of the servers to be monitored, save the YAML file changes. 
+
+Next, you can now create a persistent storage volume for the prometheus container to use for data storage.
 
 ```
    docker volume create prom-storage
+```
+
+
+You can then start the prometheus container.   Make sure you're in the `prometheus` subdirectory where you will find the `docker-compose.yml` file.   Then start prometheus by:
+
+```
+docker-compose up -d
+```
+
+This should start prometheus scraping your servers immediately.   Check the logs to make sure it did not crash or fail.  Typical reason for failure is problem parsing your `prometheus.yml` file.
+
+
+```
+docker logs <prometheus container name or id>
 ```
 
  
