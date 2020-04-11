@@ -79,7 +79,28 @@ cd   Rocket.Chat.Monitoring/prometheus/config
 vi prometheus.yml
 ```
 
-Every one of the server that you need to scrape has a `job` section in configuration file.
+Every one of the server that you want to monitor has a `job` section under `scrape_configs` within the file.
+
+For every server container you added in step 2, you should add a dns_sd (Naming service discovery) job:
+
+```  - job_name: <short server name>
+       dns_sd_configs:
+       - names: ["<actual container name or id>"]
+         type: A
+         port: <port exposing metrics>
+```
+
+The `<short server name>` should be a string to identify the server to be scraped (for example `familyserver`).   The `<actual container name or id>`  must be the name or id of a container that you have confirmed to be connected to the monitoring network in step 3.    The `<port exposing metrics>` is the port that you've noted in step 1 and verified at step 2.
 
 
-#### 2.   Create monitoring network and add server containers (
+For every server that you want to monitor, but is not running in docker, or not connected to the monitoring network, use a `static_configs` job description:
+
+```
+     - job_name: <short server name>
+       static_configs:
+         - targets: ['<IP address of server host>:<port exposing mettrics']
+```
+
+The `<short server name>` should be a string to identify the server to be scraped (for example `familyserver`).   The `<IP address of server host>`  must be the IP address that you can reach the server to be monitored by.  The `<port exposing metrics>` is the port that you've noted in step 1.
+
+
