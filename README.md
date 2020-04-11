@@ -191,5 +191,24 @@ Grafana should be up and running now, double check the logs.
 docker logs <grafana container name or id>
 ```
 
+If everything goes well, you should see a message indicating the server is listenting to requests.
+
+```
+"HTTP Server Listen"
+```
+
+If you see connection problems, double check the grafana datasource YAML file `prometheus.yml` and restart the container.
+
+Point your browser to access the grafana login at:
 
 
+```
+http://<host IP of grafana container>:3300
+```
+
+The default login credential is:
+
+username:   admin
+password:   admin
+
+You should immediately add users and change the administrator's password.   See [grafana permissions and roles](https://grafana.com/docs/grafana/latest/permissions/overview/)  for more information on user administration and setup.
