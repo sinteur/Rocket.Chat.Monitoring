@@ -25,5 +25,4 @@ For security reasons, Rocket.Chat servers do not expose any operational metrics 
 
 For each server you want to monitor, sign in as administrator and then go to Administration -> Logs -> Prometheus and make sure you **enable** it and remember the default port used.
 
- 
-
+![Enable Prometheus metrics exposure](turnonprom.png)
