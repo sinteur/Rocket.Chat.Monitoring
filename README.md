@@ -152,7 +152,7 @@ Before you move onto the next step of setting up graphical dashboards, you may w
 
 #### 4.   Setup grafana to display graphical dashboards based on collected data
 
-You will use [grafana](https://grafana.com/), the open source de-factor visualization platform that works extremely well with prometheus, to display our dashboards (as well as creation of new dashboards and customization of existing ones).   
+You will use [grafana](https://grafana.com/), the open source de-facto visualization platform that works extremely well with prometheus, to display our dashboards (as well as creation of new dashboards and customization of existing ones).   
 
 Grafana will be running in a docker container that is connected to the monitoring network that you setup previously  (prometheus should be now running and connected to this monitoring network from step 3).
 
