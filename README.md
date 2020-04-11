@@ -26,7 +26,7 @@ For security reasons, Rocket.Chat servers do not expose any operational metrics 
 
 For each server you want to monitor, sign in as administrator and then go to Administration -> Logs -> Prometheus and make sure you **enable** it and remember the default port used.  Save your changes.
 
-![Enable Prometheus metrics exposure](turnonprom.png)
+![Enable Prometheus metrics exposure](images/turnonprom.png)
 
 #### 2.   Create monitoring network and add server containers (for docker deployed servers)
 
@@ -144,4 +144,4 @@ You should see your list of server scraping`jobs` and their status.  If any of t
 Here is the web UI of a working prometheus scraper, handling 4 servers.
 
 
-![Prometheus targets all up](promtargets.png)
+![Prometheus targets all up](images/promtargets.png)
