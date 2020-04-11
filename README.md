@@ -206,6 +206,8 @@ Point your browser to access the grafana login at:
 http://<host IP of grafana container>:3300
 ```
 
+![grafana login screen](images/grafanalogin.png)
+
 The default login credential is:
 
 ```
