@@ -149,3 +149,16 @@ Here is the web UI of a working prometheus scraper, handling 4 servers.
 At this point, you may want to experiment with the Prometheus web UI and become familiar with PromQL.   This will become more important when you need to design and customize your own monitoring system and dashboard.  See [Prometheus documentation](https://prometheus.io/docs/introduction/overview/) for more information.
 
 Before you move onto the next step of setting up graphical dashboards, you may want to close up the web UI port currently exposed on the host machine (this can become a security problem if your machine is exposed to the Internet).   You can do this by removing the port mapping in the `docker-compose.yml` file and recreate the prometheus container.
+
+#### 4.   Setup grafana to display graphical dashboards based on collected data
+
+You will use [grafana](https://grafana.com/), the open source de-factor visualization platform that works extremely well with prometheus, to display our dashboards (as well as creation and customization).   
+
+Grafana will be running in a docker container that is connected to the monitoring network that you setup previously  (prometehus should be now running and connected to this monitoring network from step 3).
+
+First thing we need to do is to create a persistent storage volume for the grafana container to use for data storage.
+
+```
+   docker volume create grafana-storage
+```
+
