@@ -154,7 +154,7 @@ Before you move onto the next step of setting up graphical dashboards, you may w
 
 You will use [grafana](https://grafana.com/), the open source de-factor visualization platform that works extremely well with prometheus, to display our dashboards (as well as creation of new dashboards and customization of existing ones).   
 
-Grafana will be running in a docker container that is connected to the monitoring network that you setup previously  (prometehus should be now running and connected to this monitoring network from step 3).
+Grafana will be running in a docker container that is connected to the monitoring network that you setup previously  (prometheus should be now running and connected to this monitoring network from step 3).
 
 First thing we need to do is to create a persistent storage volume for the grafana container to use for data storage.
 
