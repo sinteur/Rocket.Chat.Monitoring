@@ -149,3 +149,19 @@ Here is the web UI of a working prometheus scraper, handling 4 servers.
 At this point, you may want to experiment with the Prometheus web UI and become familiar with PromQL.   This will become more important when you need to design and customize your own monitoring system and dashboard.  See [Prometheus documentation](https://prometheus.io/docs/introduction/overview/) for more information.
 
 Before you move onto the next step of setting up graphical dashboards, you may want to close up the web UI port currently exposed on the host machine (this can become a security problem if your machine is exposed to the Internet).   You can do this by removing the port mapping in the `docker-compose.yml` file and recreate the prometheus container.
+
+If you have been following along these instructions, you will not need to make any adjustment to the configuration files for grafana and it will **just** work.    However, if you have deviated, the configuration for connecting grafana to prometheus is in the `granfna/provisioning/datasources/prometheus.yml`  YAML file and you can modify it accordingly.
+
+```
+apiVersion: 1
+
+datasources:
+- name: Prometheus
+  type: prometheus
+  access: proxy
+  url: http://prometheus:9090
+  version: 1
+  editable: false
+```
+
+With the monitoring network you setup, its name service will resolve `prometheus` for connection as a datasource by the grafana container. 
