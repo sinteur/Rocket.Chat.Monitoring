@@ -91,7 +91,7 @@ For every server container you added in step 2, you should add a dns_sd (Naming 
          port: <port exposing metrics>
 ```
 
-The `<short server name>` should be a string to identify the server to be scraped (for example `familyserver`).   The `<actual container name or id>`  must be the name or id of a container that you have confirmed to be connected to the monitoring network in step 3.    The `<port exposing metrics>` is the port that you've noted in step 1 and verified at step 2.
+The `<short server name>` should be a unique string to identify the server to be scraped (for example `familyserver`).   The `<actual container name or id>`  must be the name or id of a container that you have confirmed to be connected to the monitoring network in step 3.    The `<port exposing metrics>` is the port that you've noted in step 1 and verified at step 2.
 
 
 For every server that you want to monitor, but is not running in docker, or not connected to the monitoring network, use a `static_configs` job description:
@@ -102,6 +102,13 @@ For every server that you want to monitor, but is not running in docker, or not 
          - targets: ['<IP address of server host>:<port exposing mettrics']
 ```
 
-The `<short server name>` should be a string to identify the server to be scraped (for example `familyserver`).   The `<IP address of server host>`  must be the IP address that you can reach the server to be monitored by.  The `<port exposing metrics>` is the port that you've noted in step 1.
+The `<short server name>` should be a unique string to identify the server to be scraped (for example `familyserver`).   The `<IP address of server host>`  must be the IP address that you can reach the server to be monitored by.  The `<port exposing metrics>` is the port that you've noted in step 1.
 
+After you've add `scrape_configs` for every one of the servers to be monitored, you can now create a persistent storage volume for the prometheus container to use for data storage.
+
+```
+   docker volume create prom-storage
+```
+
+ 
 
