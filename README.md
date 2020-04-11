@@ -26,3 +26,27 @@ For security reasons, Rocket.Chat servers do not expose any operational metrics 
 For each server you want to monitor, sign in as administrator and then go to Administration -> Logs -> Prometheus and make sure you **enable** it and remember the default port used.  Save your changes.
 
 ![Enable Prometheus metrics exposure](turnonprom.png)
+
+#### 2.   Create monitoring network and add server containers (for docker deployed servers)
+
+If your server(s) are deployed using docker on your multi-cores machine/vps, then create a monitoring network:
+
+```
+docker network create monitoring
+```
+
+And then connect the server(s) that you want to be monitored to this network, issuing this command for each running server container:
+
+```
+docker network connect monitoring <<container name>>
+```
+
+Where ``<<container name>>`` is the name or id of the container currently running Rocket.Chat.
+
+Once you've added all your server containers to the monitoring network, confirm it using:
+
+```
+docker network inspect monitoring
+```
+
+You should see all your containers listed as connected to monitoring network
