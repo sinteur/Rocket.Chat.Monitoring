@@ -16,7 +16,7 @@ The monitoring stack used in this project is adaptive to all platforms and can e
 
 ###  Pre-requisites
 
-*  the latest supported docker and docker-compose installed and working for your platform (on Ubuntu 18.04LTS and later, `snap install docker`
+*  the latest supported docker and docker-compose installed and working for your platform (on Ubuntu 18.04 LTS and later, `snap install docker` )
 
 
 #### 1.  Prepare your Rocket.Chat servers to expose metrics
