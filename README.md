@@ -126,5 +126,22 @@ This should start prometheus scraping your servers immediately.   Check the logs
 docker logs <prometheus container name or id>
 ```
 
+ If everything is working well, the last line in the log should have a message similar to:
  
+ ```
+"Server is ready to receive web requests."
 
+```
+
+At this point, the prometheus web UI is available on your host at port 9091 (configurable in the `docker-compose.yml` file).  Point a browser to the web UI at:
+
+```
+http://<host IP of prometheus container>:9091/targets
+```
+
+You should see your list of server scraping`jobs` and their status.  If any of them do not report **UP** status, double check the `promethus.yml` and restart the container.
+
+Here is the web UI of a working prometheus scraper, handling 4 servers.
+
+
+![Prometheus targets all up](promtargets.png)
