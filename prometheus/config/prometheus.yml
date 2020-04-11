@@ -1,0 +1,51 @@
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+      monitor: 'rocketchat-monitoring'
+
+ # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first.rules"
+  # - "second.rules"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: prometheus
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # for any Rocket.Chat servers running in containers connected to the monitoring network
+  # naming service is available
+  - job_name: rc1 
+    dns_sd_configs:
+    - names: ["rc_server_container_1"]
+      type: A
+      port: 9458
+
+  - job_name: rc2 
+    dns_sd_configs:
+    - names: ["rc2_server_container_1"]
+      type: A
+      port: 9458
+
+  # for scaled multi-instances server, list all the server names in the array
+  - job_name: office 
+    dns_sd_configs:
+    - names: ["office_server_1"]
+      type: A
+      port: 9100
+
+  # for Rocket.Chat  server not running in docker, or not connected to the monitoring 
+  # network, use static IP address config; these servers can also be in scaled multi-instances
+  # configuraton - just add instances to the names array
+
+  - job_name: family
+    static_configs:
+      - targets: ['177.23.11.23:9100']

@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prom-storage:/prometheus
+    ports:
+      - "9091:9090"
+    mem_limit: 1G
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    external: true
+
+volumes:
+  prom-storage:
+    external: true
