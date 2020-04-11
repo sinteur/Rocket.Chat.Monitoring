@@ -84,7 +84,7 @@ Every one of the server that you want to monitor has a `job` section under `scra
 For every server container you added in step 2, you should add a dns_sd (Naming service discovery) job:
 
 ```
-   - job_name: <short server name>
+     - job_name: <short server name>
        dns_sd_configs:
        - names: ["<actual container name or id>"]
          type: A
