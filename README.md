@@ -273,16 +273,25 @@ scrape_configs:
       port: 9100
 
 ```
-Here we assumed that you have setup the local monitoring network as detailed in the previous steps and used a naming service config.  If your networking topology differs, you will have to hardwire the ip address in a job with a static config.
+Here we assumed that you have setup the local monitoring network as detailed in the previous steps and used a naming service config.  If your networking topology differs, you will have to hardwire the ip address in a job with a static config.  If you are scraping across a physical network, you may want to add more jobs to scrape the different machines/vms/vps hosting the Rocket.Chat servers.
 
 After restarting the promethus container.  You can setup grafana to display the data.   
 
 This time, you will obtain a pre-fabricated ready-to-go dashboard shared by the grafana community for displaying the node exporter metrics.   Visit the [grafana dashboards repository](https://grafana.com/grafana/dashboards) to see the hundreds of community contributed (and official) dashboards available.
 
-The dashboard you will use is the [classic node exporter full dashboard by idealista](https://grafana.com/grafana/dashboards/1860).   It has a full mapping of node exporter metrics in its panels, and is an ideal base to customize for your own needs.  Note the unique dashboard id, in this case `1860`.   Grafana can directly import dashboards from this public repository via the dashboard id.
-
 ![node exporter full dashboard by idealista](images/reponodedash.png)  
+
+The dashboard you will use is the [classic node exporter full dashboard by idealista](https://grafana.com/grafana/dashboards/1860).   It has a full mapping of node exporter metrics in its panels, and is an ideal base to customize for your own needs.  Note the unique dashboard id, in this case `1860`.   Grafana can directly import dashboards from this public repository via the dashboard id.
 
 Login to grafana, click the **+** button and select import again.
 
 ![grafana import page](images/importpage.png) 
+
+Enter the dashboard id `1860`, wait for the dashboard information to be fetched by grafana.
+
+Then select your prometheus data source and click **Import**.
+
+The dashboard should start immediately displaying the system metrics from your machine/vm/vps.  In the jobs drop down list,  you can select to monitor the different physical-machines/vms/vps you are monitoring  (assuming you have setup multiple jobs earlier). 
+
+![system metrics displayed by the dashboard](images/systemmetrics.png)
+
