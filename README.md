@@ -238,3 +238,26 @@ This obviously will require operating system level access to extract the metrics
 
 Thankfully, prometheus has created an open source [node exporter](https://github.com/prometheus/node_exporter) that will directly access the linux system (via mechanisms such as [procfs](https://www.kernel.org/doc/Documentation/filesystems/proc.txt) ) and convert the information in realtime to prometheus compatible metrics.   These system metrics can then be visualized on grafana dashboards.  
 
+With the work you've already completed in step 1 to 4, it is very easy to add node exporter to the data collection mix.  You can start node-exporter collecting data, on the machine/vm/vps that you want to collect data on, by going to the `nodeexporter` directory and running the `docker-compose.yml` there.
+
+```
+sudo docker-compose up -d
+```
+
+It is necessary to run node-exporter as superuser to access some of the stats provided by system plugins. You can, however, opt to run it without superuser privileges and still obtain most of the CPU, memory, disk and publicly accessible metrics.
+
+Check the logs immediately.  If everything works fine, you should see a message similar to.
+
+```
+msg="Listening on" address=:9100
+
+```
+
+You can also see the converted prometheus compatible metrics.
+
+```
+curl  http://<host where node exporter is running>:9100 
+```
+
+At this point, you will want to close up port 9100 by removing it from the `docker-compose.yml` and restarting the node exporter container.
+
