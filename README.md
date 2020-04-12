@@ -261,3 +261,21 @@ curl  http://<host where node exporter is running>:9100
 
 At this point, you will want to close up port 9100 by removing it from the `docker-compose.yml` and restarting the node exporter container.
 
+Next, you need to tell prometheus about this additional service to scrape.   You can do this by adding a `job` to the `scrape_configs` section in the `prometheus/config/prometheus.yml` file and then restarting the prometheus container. 
+
+```
+scrape_configs:
+
+  - job_name: node-exporter
+    dns_sd_configs:
+    - names: [<name or id of node exporter container>]
+      type: A
+      port: 9100
+
+```
+Here we assumed that you have setup the local monitoring network as detailed in the previous steps and used a naming service config.  If your networking topology differs, you will have to hardwire the ip address in a job with a static config.
+
+After restarting the promethus container.  You can setup grafana to display the data.   
+
+This time, you will obtain a pre-fabricated ready-to-go dashboard shared by the grafana community for displaying the node exporter metrics.   Visit the [grafana dashboard repository](https://grafana.com/grafana/dashboards) to see the hundreds of community contributed dashboards available.
+
