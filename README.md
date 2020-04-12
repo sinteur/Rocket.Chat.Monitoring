@@ -24,7 +24,7 @@ The monitoring stack used in this project is adaptive to all platforms and can e
 
 For security reasons, Rocket.Chat servers do not expose any operational metrics by default.  You must turn it on. 
 
-For each server you want to monitor, sign in as administrator and then go to Administration -> Logs -> Prometheus and make sure you **enable** it and remember the default port used.  Save your changes.
+For each server you want to monitor, sign in as administrator and then go to **Administration -> Logs -> Prometheus** and make sure you **enable** it and remember the default port used.  Save your changes.
 
 ![Enable Prometheus metrics exposure](images/turnonprom.png)
 
@@ -291,7 +291,7 @@ Enter the dashboard id `1860`, wait for the dashboard information to be fetched 
 
 Then select your prometheus data source and click **Import**.
 
-The dashboard should start immediately displaying the system metrics from your machine/vm/vps.  In the jobs drop down list,  you can select to monitor the different physical-machines/vms/vps you are monitoring  (assuming you have setup multiple jobs earlier). 
+The dashboard should start immediately displaying the system metrics from your machine/vm/vps.  In the **job** drop down list,  you can select to monitor the different physical-machines/vms/vps you are monitoring  (assuming you have setup multiple jobs earlier). 
 
 ![system metrics displayed by the dashboard](images/systemmetrics.png)
 
