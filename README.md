@@ -230,5 +230,11 @@ This is only a basic "starter" dashboard that we included. It has many of the us
 
 You are likely only to need a subset of the panels on the dashboards and can customize it to your needs.   You are encouraged to study the [grafana dashboard design documentation](https://grafana.com/docs/grafana/latest/features/dashboard/dashboards/) and customize or create your own.   Please consider contributing any useful dashboards that you create back to this project.
 
+#### 5.   (optional) Setup system level monitoring with node exporter and grafana
 
+One frequently requested addition to Rocket.Chat's application level monitoring is the ability to monitor the system that is hosting the server itself.   Namely to visualize the underlying CPU usage, memory consumption, disk usage, network traffic and so on.   
+
+This obviously will require operating system level access to extract the metrics. And the data collected is pertained to the  entire physical-machine/vm/vps that may be running many Rocket.Chat containers/instances, prometheus and grafana, and other services/tasks. 
+
+Thankfully, prometheus has created an open source [node exporter](https://github.com/prometheus/node_exporter) that will directly access the linux system (via mechanisms such as [procfs](https://www.kernel.org/doc/Documentation/filesystems/proc.txt) ) and convert the information in realtime to prometheus compatible metrics.   These system metrics can then be visualized on grafana dashboards.  
 
