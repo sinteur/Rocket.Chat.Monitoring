@@ -279,4 +279,10 @@ After restarting the promethus container.  You can setup grafana to display the 
 
 This time, you will obtain a pre-fabricated ready-to-go dashboard shared by the grafana community for displaying the node exporter metrics.   Visit the [grafana dashboards repository](https://grafana.com/grafana/dashboards) to see the hundreds of community contributed (and official) dashboards available.
 
-The dashboard you will use is the [classic node exporter full dashboard by idealista](https://grafana.com/grafana/dashboards/1860).   It has a full mapping of node exporter metrics in its panels, and is an ideal base to customize for your own needs.  Note the unique dashboard id, in this case `1860`.   Grafana can directly import dashboards from this public repository via the dashboard id.  
+The dashboard you will use is the [classic node exporter full dashboard by idealista](https://grafana.com/grafana/dashboards/1860).   It has a full mapping of node exporter metrics in its panels, and is an ideal base to customize for your own needs.  Note the unique dashboard id, in this case `1860`.   Grafana can directly import dashboards from this public repository via the dashboard id.
+
+![node exporter full dashboard by idealista](images/reponodedash.png)  
+
+Login to grafana, click the **+** button and select import again.
+
+![grafana import page](images/importpage.png) 
