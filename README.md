@@ -266,14 +266,14 @@ Next, you need to tell prometheus about this additional service to scrape.   You
 ```
 scrape_configs:
 
-  - job_name: node-exporter
+  - job_name: <short name of the physical machine or vm or vps>
     dns_sd_configs:
     - names: [<name or id of node exporter container>]
       type: A
       port: 9100
 
 ```
-Here we assumed that you have setup the local monitoring network as detailed in the previous steps and used a naming service config.  If your networking topology differs, you will have to hardwire the ip address in a job with a static config.  If you are scraping across a physical network, you may want to add more jobs to scrape the different machines/vms/vps hosting the Rocket.Chat servers.
+Here we assumed that you have setup the local monitoring network as detailed in the previous steps and used a naming service config.  If your networking topology differs, you will have to hardwire the ip address in a job with a static config.  If you are scraping across a physical network, you may want to add more jobs to scrape the different physical-machines/vms/vps hosting the Rocket.Chat servers.
 
 After restarting the promethus container.  You can setup grafana to display the data.   
 
