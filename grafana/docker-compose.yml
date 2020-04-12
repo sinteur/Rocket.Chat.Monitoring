@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./provisioning:/etc/grafana/provisioning:ro
+    ports:
+      - "3037:3000"
+    mem_limit: 1G
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    external: true
+
+volumes:
+  grafana-storage:
+    external: true
+
