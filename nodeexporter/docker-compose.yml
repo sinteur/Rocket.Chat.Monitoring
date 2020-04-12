@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  nodeexporter:
+    image: prom/node-exporter:v1.0.0-rc.0
+    entrypoint: ["/bin/node_exporter","--path.rootfs=/host"]
+    volumes:
+      - "/:/host:ro,rslave"
+    ports:
+      - "9100:9100"
+    mem_limit: 1G
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    external: true
+
