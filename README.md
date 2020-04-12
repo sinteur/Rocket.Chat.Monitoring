@@ -222,6 +222,8 @@ Upon login, you can immediately import the starter Rocket.Chat dashboard and get
 
 Choose **Upload .json file**.  Select the dashboard `.json` file from `dashboards/rocketchat/rcmonitoringbase.json`.   This will load and display the dashboard against the prometheus data.   
 
+![rocket.chat starter dashboard](images/rocketdash.png)
+
 From the **servers:** drop down list, you can select any of your servers to display its metrics.
 
 This is only a basic "starter" dashboard that we included. It has many of the useful Rocket.Chat application level metrics, API call and resource consumption metrics, and NodeJS based metrics.    
