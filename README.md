@@ -224,7 +224,7 @@ Choose **Upload .json file**.  Select the dashboard `.json` file from `dashboard
 
 ![rocket.chat starter dashboard](images/rocketdashboard.png)
 
-From the **servers:** drop down list, you can select any of your servers to display its metrics.
+From the **server:** drop down list, you can select any of your servers to display its metrics.
 
 This is only a basic "starter" dashboard that we included. It has many of the useful Rocket.Chat application level metrics, API call and resource consumption metrics, and NodeJS based metrics.    
 
