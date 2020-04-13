@@ -52,13 +52,6 @@ docker network inspect monitoring
 
 You should see all your containers listed as connected to monitoring network.  
 
-Confirm that everyone of your Rocket.Chat server is now exposing metrics:
-
-
-```
-curl http://<your server's (container's) ip address>: port
-```
-
 Alternatively, if you have your Rocket Chat docker containers run on a network that you can safely expose, just change this section the docker-compose.yml for your Rocket Chat instance:
 
 from:
@@ -74,6 +67,12 @@ to
       - 9100:9100
 ```
 
+Either way, you can now confirm that every one of your Rocket.Chat servers is now exposing metrics:
+
+
+```
+curl http://<your server's (container's) ip address>: port
+```
 
 
 Use either the server's IPv4 or the containers IPv4 address, and the port that you noted in step 1.   You should see a page of metrics in text format.   
