@@ -59,6 +59,23 @@ Confirm that everyone of your Rocket.Chat server is now exposing metrics:
 curl http://<your server's (container's) ip address>: port
 ```
 
+Alternatively, if you have your Rocket Chat docker containers run on a network that you can safely expose, just change this section the docker-compose.yml for your Rocket Chat instance:
+
+from:
+```
+    ports:
+      - 3000:3000
+```
+
+to 
+```
+    ports:
+      - 3000:3000
+      - 9100:9100
+```
+
+
+
 Use either the server's IPv4 or the containers IPv4 address, and the port that you noted in step 1.   You should see a page of metrics in text format.   
 
 #### 3.   Setup Prometheus to scrape metrics from servers and store data
